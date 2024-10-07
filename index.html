@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-5').style.display = 'none';
+                document.getElementById('activity-1').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - S1 - M07.5</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- Actividad 1 (4 pasos) -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('introActivity1')">
+        <div class="title">
+            <span>🖐 Actividad 1: Saludo y Ritual Gnius Club (4 pasos)</span>
+            <span>⏰ Tiempo: 2.5 minutos</span>
+        </div>
+        <div class="subtitle">Bienvenida y preparación para el reto colaborativo de hoy</div>
+    </div>
+    <div id="introActivity1" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 2 "Bienvenida"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                ¡Hola, genios! Hoy continuaremos nuestra aventura como escultores digitales. ¿Listos para un nuevo desafío que pondrá a prueba todo lo que hemos aprendido? ¡Vamos a seguir trabajando como artesanos!
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 3 "¿Cómo están hoy?"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Antes de comenzar, quiero saber cómo se sienten hoy. Si están emocionados por este reto, levanten la mano derecha. Si necesitan un poco más de motivación, levanten la mano izquierda.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 4 "Gracias por Asistir"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora, juntemos nuestras manos en agradecimiento por estar aquí, listos para aprender y crear algo increíble. ¡Gracias por asistir, Genios!
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 5 "Objetivos de la Misión"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hoy tenemos dos grandes objetivos: practicaremos el trabajo colaborativo dentro de TinkerCAD, y exploraremos cómo darle vida a nuestro árbol con detalles pequeños. ¡Es hora de ser más creativos que nunca!
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 2 (4 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('introActivity2')">
+        <div class="title">
+            <span>👐 Actividad 2: State Change (4 pasos)</span>
+            <span>⏰ Tiempo: 3.5 minutos</span>
+        </div>
+        <div class="subtitle">Relajación y enfoque antes del trabajo en TinkerCAD</div>
+    </div>
+    <div id="introActivity2" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 6 "Manos Mágicas"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Vamos a empezar con una breve actividad para relajar los ojos y mejorar nuestra concentración. La deben conocer muy bien a éste punto. Esta técnica se llama "Manos Mágicas". ¡Vamos a comenzar!
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 7 "Frotando las Manos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Primero, froten sus manos rápidamente como si intentaran encender fuego. Sientan cómo se calientan, esto nos ayudará a concentrar nuestra energía.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 8 "Colocando las Manos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Con las manos calientes, colóquenlas suavemente sobre sus ojos cerrados. Sientan el calor relajante en los músculos de sus ojos y cómo se relajan profundamente. Mantengan esta posición unos segundos.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 9 "Relajación"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Suelten las manos lentamente y abran los ojos. Esta técnica es excelente para cuando van a trabajar frente a la pantalla de la computadora, como nuestro proyecto de hoy. ¡Ahora, con mente y cuerpo enfocados, continuemos!
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 3 (5 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('teamActivity')">
+        <div class="title">
+            <span>🛠️ Actividad 3: Team Gnius (5 pasos)</span>
+            <span>⏰ Tiempo: 10 minutos</span>
+        </div>
+        <div class="subtitle">Organización y colaboración en equipo</div>
+    </div>
+    <div id="teamActivity" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 10 "Formando Equipos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Genios, vamos a seguir trabajando en equipo. Reúnanse con sus compañeros de misiones anteriores y recuerden lo que han aprendido colaborando. Ahora, uno de ustedes pase por su Magic Tablet.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2 minutos): Proyectar Diapositiva 11 "Tablero Kanban"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                En sus Magic Tablets, vamos a dibujar nuevamente un tablero Kanban con las columnas: "Por hacer", "En proceso" y "Completado". Esto nos ayudará a organizar nuestras tareas y mantener un seguimiento claro del progreso.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (3 minutos): Proyectar Diapositiva 12 "Planificación y Organización"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                ¿Recuerdan qué es fundamental cuando trabajamos en equipo? ¡Exacto! Organizar y planificar, a lo cual la metodología Kanban nos ayuda. Usen su Kanban para visualizar cada paso. Escriban las tareas en Post-its, y conforme avancen, muévanlos entre columnas para medir el progreso de su trabajo, otro beneficio de trabajar con el tablero Kanban es que podemos ver, de una manera gráfica, qué tan cerca estamos de completar nuestro proyecto.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (3 minutos): Proyectar Diapositiva 13 "Reto del Árbol de la Vida"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                El reto de hoy será detallar su árbol de la vida, pero con una dificultad adicional: agregar la mayor cantidad de detalles pequeños posibles. Estos detalles harán que su trabajo destaque aún más. Los árboles de la vida son famosos por su intrincado trabajo. Además de los símbolos de vida y fertilidad, su desafío será llenarlos de detalles pequeños y creativos que cuenten una historia única.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (6 minutos): Proyectar Diapositiva 14 "Tiempo de Planificación"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                ¿Alguno de ustedes ha visto un programa de competencia de pastelería? Son programas en donde diferentes equipos de pasteleros compiten haciendo pasteles muy específicos, les dan un desafío y ellos deben crear un pastel que cumpla con el reto, dentro de una ventana de tiempo muy limitada. En muchas maneras se parece a lo que hacemos nosotros, y los que han visto estos programas sabrán que lo primero que hacen siempre los pasteleros es planear lo que van a hacer. Y una vez que tienen claro lo que piensan hacer, se reparten las tareas y se ponen a trabajar ¡Eso es un gran ejemplo de colaboración! Y nosotros aprovecharemos nuestro tablero Kanban para colaborar de una manera similar. Por lo que vamos a tomarnos 5 minutos para planificar las mejoras al árbol de la vida. Piensen en qué elementos pueden añadir para que su árbol se vea repleto y lleno de vida, igual que las artesanías originales de Metepec. Ya que tengan sus ideas, asignen al menos 3 tareas para cada uno de ustedes y colóquenlas dentro de su tablero Kanban.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 4 (6 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('challengeActivity')">
+        <div class="title">
+            <span>🌳 Actividad 4: Challenge (6 pasos)</span>
+            <span>⏰ Tiempo: 30 minutos</span>
+        </div>
+        <div class="subtitle">Colaboración en Tinkercad y creación del árbol de la vida</div>
+    </div>
+    <div id="challengeActivity" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 15 "Reto del Árbol de la Vida"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Genios, como les había comentado, el reto de hoy será detallar nuestro árbol de la vida, algo que puede ser mucho más sencillo trabajando de manera colaborativa en TinkerCAD, así que nuevamente seguiremos esa metodología.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (3 minutos): Proyectar Diapositiva 16 "Colaboración en Tinkercad"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Uno de ustedes va a crear un proyecto nuevo en Tinkercad. Luego, en la parte superior derecha del editor, verán un ícono con una persona y un símbolo de +. Hagan clic en él y aparecerá un cuadro de diálogo titulado "Colaborar". Aquí, van a generar un nuevo vínculo haciendo clic en el botón "Generar nuevo vínculo". Copien ese vínculo y compártanlo con su compañero de equipo. Al acceder a ese vínculo, su compañero entrará en el mismo diseño y podrán trabajar juntos al mismo tiempo, en el mismo espacio.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 17 "Configurando la Colaboración"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Tómense un minuto para configurar su colaboración en Tinkercad. Una vez que ambos estén conectados, podrán ver lo que cada uno está haciendo en tiempo real. Esto les permitirá dividir el trabajo de manera eficiente y coordinarse mientras crean su árbol de la vida.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (15 minutos): Proyectar Diapositiva 18 "Tiempo de Creación"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                ¡Muy bien escultores! Ha llegado el momento de perfeccionar nuestras artesanías. Tienen 15 minutos para detallar su árbol de la vida. Recuerden utilizar el Kanban board para seguir el progreso y asegurarse de que cada tarea esté siendo completada. ¡Mucho éxito con sus creaciones!
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (2 minutos): Proyectar Diapositiva 19 "Revisión del Desafío"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                ¡Se terminó el tiempo! Estoy emocionado por ver sus creaciones. Vamos a tomarnos 3 minutos para revisar los árboles de sus compañeros, para lo cual vamos a convertir el salón en una galería. Dejen en sus lugares sus computadoras y pónganse de pie, van a tener 3 minutos para pasear por nuestra galería de arte y ver el trabajo que hicieron sus compañeros. ¡Adelante!
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (1 minuto): Proyectar Diapositiva 20 "Objetivos de la Misión"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hoy hemos logrado dos cosas importantes: <br> 1. Hemos practicado trabajar colaborativamente en Tinkercad. <br> 2. Hemos detallado nuestro árbol de la vida, aplicando técnicas de modelado y creatividad. ¡Bien hecho, Genios!
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 5 (1 paso) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('honorDojo')">
+        <div class="title">
+            <span>🧹 Actividad 5: Honor de Dojo (1 paso)</span>
+            <span>⏰ Tiempo: 1 minuto</span>
+        </div>
+        <div class="subtitle">Cierre de la misión y agradecimiento</div>
+    </div>
+    <div id="honorDojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 21 "Honor de Dojo"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Limpien las notas que hayan hecho en sus magic tablets y entréguenmelas conforme vayan saliendo del salón.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
